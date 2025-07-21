@@ -133,6 +133,7 @@ collections:
           - label: "Section 1"
             name: "section1"
             widget: "object"
+            required: false
             fields:
               - {label: "Header", name: "section1_header", widget: "string"}
               - {label: "Text", name: "section1_text", widget: "markdown"}
@@ -140,6 +141,7 @@ collections:
           - label: "Section 2"
             name: "section2"
             widget: "object"
+            required: false
             fields:
               - {label: "Header", name: "section2_header", widget: "string"}
               - {label: "Text", name: "section2_text", widget: "markdown"}
