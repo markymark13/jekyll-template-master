@@ -54,11 +54,11 @@ section2_image: /assets/images/section2.png
   {% endif %}
 
   <!-- Services Section -->
-  {% if site.data.services.size > 0 %}
+  {% if site.data.services.services.size > 0 %}
     <section class="services">
       <h2>Services</h2>
       <div class="services-grid">
-        {% for service in site.data.services %}
+        {% for service in site.data.services.services %}
           <div class="service-item">
             <h3>{{ service.name }}</h3>
             <p>{{ service.description }}</p>
@@ -76,11 +76,11 @@ section2_image: /assets/images/section2.png
   {% endif %}
 
   <!-- Products Section -->
-  {% if site.data.products.size > 0 %}
+  {% if site.data.products.products.size > 0 %}
     <section class="products">
       <h2>Products</h2>
       <div class="products-grid">
-        {% for product in site.data.products %}
+        {% for product in site.data.products.products %}
           <div class="product-item">
             <h3>{{ product.name }}</h3>
             <p>{{ product.description }}</p>
@@ -93,16 +93,26 @@ section2_image: /assets/images/section2.png
   {% endif %}
 
   <!-- Testimonials Section -->
-  {% if site.data.testimonials.size > 0 %}
+  {% if site.data.testimonials.testimonials.size > 0 %}
     <section class="testimonials">
       <h2>Testimonials</h2>
       <div class="testimonials-grid">
-        {% for testimonial in site.data.testimonials %}
+        {% for testimonial in site.data.testimonials.testimonials %}
           <div class="testimonial-item">
             <blockquote>{{ testimonial.quote }}</blockquote>
             <div class="testimonial-author">
               {% if testimonial.photo and testimonial.photo != "" %}
-              {% picture lazy {{ testimonial.photo }} alt="{{ testimonial.name }}" %}
+                {% assign image_found = false %}
+                {% for static_file in site.static_files %}
+                  {% if static_file.path == testimonial.photo %}
+                    {% assign image_found = true %}
+                    {% break %}
+                  {% endif %}
+                {% endfor %}
+                
+                {% if image_found %}
+                  {% picture lazy {{ testimonial.photo }} --alt {{ testimonial.name }} %}
+                {% endif %}
               {% endif %}
               <cite>{{ testimonial.name }}, {{ testimonial.role }}</cite>
             </div>
@@ -113,11 +123,11 @@ section2_image: /assets/images/section2.png
   {% endif %}
 
   <!-- FAQ Section -->
-  {% if site.data.faq.size > 0 %}
+  {% if site.data.faq.faq.size > 0 %}
     <section class="faq">
       <h2>FAQ</h2>
       <div class="faq-grid">
-        {% for item in site.data.faq %}
+        {% for item in site.data.faq.faq %}
           <div class="faq-item">
             <h3>{{ item.question }}</h3>
             <div class="answer">{{ item.answer | markdownify }}</div>
