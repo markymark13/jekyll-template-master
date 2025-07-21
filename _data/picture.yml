@@ -25,7 +25,6 @@ presets:
 
   # Use this for lazy loading: {% picture lazy image.jpg %}
   lazy:
-    markup: data_auto
     formats: [webp, original]
     widths: [400, 800, 1200]
     sizes:
@@ -33,9 +32,8 @@ presets:
       tablet: 80vw
     size: 800px
     dimension_attributes: true
-    noscript: true
     attributes:
-      parent: class="lazy"
+      img: loading="lazy"
 
   # Use this for portfolio grids: {% picture portfolio image.jpg %}
   portfolio:
