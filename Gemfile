@@ -23,6 +23,7 @@ group :jekyll_plugins do
   gem "jekyll-minifier"
   gem 'jekyll_picture_tag'
   gem 'vips'
+  gem 'jekyll-last-modified-at'
   
 end
 

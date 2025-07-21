@@ -16,7 +16,7 @@ section2_image: /assets/images/section2.png
   <div class="hero">
     <h1>{{ page.hero_header }}</h1>
     {% if page.hero_image %}
-      <img src="{{ page.hero_image }}" alt="{{ page.hero_header }}" class="hero-image">
+      {% picture lazy {{ page.hero_image }} alt="{{ page.hero_header }}" %}
     {% endif %}
   </div>
 
@@ -26,7 +26,7 @@ section2_image: /assets/images/section2.png
     <div class="section-content">
       {{ page.section1_text | markdownify }}
       {% if page.section1_image %}
-        <img src="{{ page.section1_image }}" alt="{{ page.section1_header }}">
+        {% picture lazy {{ page.section1_image }} alt="{{ page.section1_header }}" %}
       {% endif %}
     </div>
   </section>
@@ -36,7 +36,7 @@ section2_image: /assets/images/section2.png
     <div class="section-content">
       {{ page.section2_text | markdownify }}
       {% if page.section2_image %}
-        <img src="{{ page.section2_image }}" alt="{{ page.section2_header }}">
+        {% picture lazy {{ page.section2_image }} alt="{{ page.section2_header }}" %}
       {% endif %}
     </div>
   </section>
@@ -105,7 +105,7 @@ section2_image: /assets/images/section2.png
             <blockquote>{{ testimonial.quote }}</blockquote>
             <div class="testimonial-author">
               {% if testimonial.photo and testimonial.photo != "" %}
-                <img src="{{ testimonial.photo }}" alt="{{ testimonial.name }}">
+              {% picture lazy {{ testimonial.photo }} alt="{{ testimonial.name }}" %}
               {% endif %}
               <cite>{{ testimonial.name }}, {{ testimonial.role }}</cite>
             </div>

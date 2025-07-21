@@ -49,6 +49,7 @@ plugins:
   - jekyll-redirect-from
   - jekyll-minifier
   - jekyll_picture_tag
+  - jekyll-last-modified-at
 
 # Pagination settings
 paginate: 5
@@ -58,7 +59,9 @@ last-modified-at:
     date-format: '%B %d, %Y'
 
 # See picture.yml for more settings related to image processing.
-  
+picture:
+  ignore_missing_images: true
+  continue_on_missing: true
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to

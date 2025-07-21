@@ -5,6 +5,10 @@
   </head>
   <body>
     {% include header.html %}
+     {% if page.last_modified_at %}
+    <br>Updated: {{ page.last_modified_at | date: "%B %d, %Y" }}
+  {% endif %}
+  
     <main class="post-content" aria-label="Content">
       <div class="wrapper">
         <article class="post">
