@@ -66,6 +66,14 @@
     }
   </style>
 
+  <!-- 
+    SMART CSS LOADING FOR PERFORMANCE:
+    
+    Line 1: Loads CSS without blocking page render (media="print" trick + onload switch)
+    Line 2: Fallback for users with JavaScript disabled (accessibility)
+    
+    Both lines needed for Lighthouse 100 + compatibility!
+  -->
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" media="print" onload="this.media='all'">
   <noscript>
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
