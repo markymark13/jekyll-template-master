@@ -16,7 +16,7 @@ section2_image: /assets/images/section2.png
   <div class="hero">
     <h1>{{ page.hero_header }}</h1>
     {% if page.hero_image %}
-      {% picture lazy {{ page.hero_image }} alt="{{ page.hero_header }}" %}
+    {% picture lazy {{ page.hero_image }} alt="{{ page.hero_header }}" %}
     {% endif %}
   </div>
 
@@ -35,9 +35,6 @@ section2_image: /assets/images/section2.png
     <h2>{{ page.section2_header }}</h2>
     <div class="section-content">
       {{ page.section2_text | markdownify }}
-      {% if page.section2_image %}
-        {% picture lazy {{ page.section2_image }} alt="{{ page.section2_header }}" %}
-      {% endif %}
     </div>
   </section>
 

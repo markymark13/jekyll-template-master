@@ -14,13 +14,56 @@
 
   <style>
     /*
-      IMPORTANT: Place the minimal CSS required for your *above-the-fold* content here.
-      Tools like Critical CSS generators (e.g., penthouse, critical) can help extract this.
-      This should be minified.
+      CRITICAL CSS FOR LIGHTHOUSE 100 SCORE:
+      
+      This inline CSS prevents layout shifts (CLS) by defining typography and spacing
+      before the main CSS loads. Include styles for:
+      
+      1. Body font-family, font-size, line-height (prevents font loading shifts)
+      2. Heading margins and line-heights (prevents typography shifts) 
+      3. Paragraph margins (prevents content jumping)
+      4. Any above-the-fold layout containers
+
+      This CSS goes in the <head> so it loads BEFORE everything else.
+      It stops the page from "jumping around" while it loads.
+      
+      WHY: When fonts and CSS load, text can change size and move things around.
+      This makes Google Lighthouse angry and gives you a bad score.
+      
+      WHAT TO DO:
+      - When you change fonts → update the font-family here too
+      - When you change text sizes → update font-size and line-height here
+      - When you change spacing → update margins here
+      - When you change layout → update .wrapper here
+      
+      RULE: Only put styles here that people see immediately when the page loads!
+      Everything else goes in main.css
+      
+      Keep this minimal - only styles visible on initial page load!
+      Remove or modify these when customizing your template.
     */
-    body { font-family: sans-serif; margin: 0; padding: 0; }
-    .header { background-color: #f8f8f8; padding: 20px; text-align: center; }
-    /* ... and so on for elements immediately visible on page load */
+    body { 
+      font-family: system-ui, sans-serif; 
+      margin: 0; 
+      padding: 20px; 
+      line-height: 1.6;
+      font-size: 16px;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0 0 1rem 0;
+      line-height: 1.2;
+    }
+    
+    p {
+      margin: 0 0 1rem 0;
+    }
+    
+    .wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
   </style>
 
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" media="print" onload="this.media='all'">
@@ -30,7 +73,7 @@
 
   {% feed_meta %}
 
-  {% if jekyll.environment == 'production' and site.google_analytics %}
+  {% if jekyll.env == 'production' and site.google_analytics %}
     {% include google-analytics.html %} {# This include should contain your GA script #}
   {% endif %}
 
