@@ -48,7 +48,6 @@ collections:
     extension: "json"
     format: "json"
     identifier_field: "question"
-    filter: {field: "slug", value: "faq"}
     fields:
       - {label: "Question", name: "question", widget: "string"}
       - {label: "Answer", name: "answer", widget: "markdown"}
@@ -60,7 +59,6 @@ collections:
     extension: "json"
     format: "json"
     identifier_field: "name"
-    filter: {field: "slug", value: "products"}
     fields:
       - {label: "Name", name: "name", widget: "string"}
       - {label: "Description", name: "description", widget: "text"}
@@ -75,7 +73,6 @@ collections:
     extension: "json"
     format: "json"
     identifier_field: "name"
-    filter: {field: "slug", value: "services"}
     fields:
       - {label: "Name", name: "name", widget: "string"}
       - {label: "Description", name: "description", widget: "markdown"}
@@ -92,7 +89,6 @@ collections:
     extension: "json"
     format: "json"
     identifier_field: "name"
-    filter: {field: "slug", value: "testimonials"}
     fields:
       - {label: "Name", name: "name", widget: "string"}
       - {label: "Role", name: "role", widget: "string"}
