@@ -135,17 +135,17 @@ collections:
             widget: "object"
             required: false
             fields:
-              - {label: "Header", name: "section1_header", widget: "string"}
-              - {label: "Text", name: "section1_text", widget: "markdown"}
-              - {label: "Image", name: "section1_image", widget: "image"}
+              - {label: "Header", name: "section1_header", widget: "string", required: false}
+              - {label: "Text", name: "section1_text", widget: "markdown", required: false}
+              - {label: "Image", name: "section1_image", widget: "image", required: false}
           - label: "Section 2"
             name: "section2"
             widget: "object"
             required: false
             fields:
-              - {label: "Header", name: "section2_header", widget: "string"}
-              - {label: "Text", name: "section2_text", widget: "markdown"}
-              - {label: "Image", name: "section2_image", widget: "image"}
+              - {label: "Header", name: "section2_header", widget: "string", required: false}
+              - {label: "Text", name: "section2_text", widget: "markdown", required: false}
+              - {label: "Image", name: "section2_image", widget: "image", required: false}
               
       - file: "about.html"
         label: "About Page"
@@ -157,7 +157,8 @@ collections:
           - label: "Section 1"
             name: "section1"
             widget: "object"
+            required: false
             fields:
-              - {label: "Header", name: "section1_header", widget: "string"}
-              - {label: "Text", name: "section1_text", widget: "markdown"}
-              - {label: "Image", name: "section1_image", widget: "image"}
+              - {label: "Header", name: "section1_header", widget: "string", required: false}
+              - {label: "Text", name: "section1_text", widget: "markdown", required: false}
+              - {label: "Image", name: "section1_image", widget: "image", required: false}
