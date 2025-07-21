@@ -1,13 +1,15 @@
-[
-  {
-    "name": "John Doe",
-    "role": "CEO, Company Name",
-    "quote": "Amazing service and professional team!"
-  },
-  {
-    "name": "Jane Smith",
-    "role": "Marketing Director",
-    "quote": "Best decision we made for our business.",
-    "photo": "/assets/images/testimonials/jane-smith.jpg"
-  }
-]
+{
+  "testimonials": [
+    {
+      "name": "John Doe",
+      "role": "CEO, Company Name",
+      "quote": "Amazing service and professional team!"
+    },
+    {
+      "name": "Jane Smith",
+      "role": "Marketing Director",
+      "quote": "Best decision we made for our business.",
+      "photo": "/assets/images/testimonials/jane-smith.jpg"
+    }
+  ]
+}

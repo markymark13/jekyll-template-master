@@ -31,6 +31,8 @@ collections:
     label: "Blog Posts"
     folder: "_posts"
     create: true
+    extension: "md"  # Add this!
+    format: "frontmatter"  # Add this!
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Layout", name: "layout", widget: "hidden", default: "post"}
@@ -43,57 +45,71 @@ collections:
 
   - name: "faq"
     label: "FAQ"
-    folder: "_data"
-    create: true
-    extension: "json"
-    format: "json"
-    identifier_field: "question"
-    fields:
-      - {label: "Question", name: "question", widget: "string"}
-      - {label: "Answer", name: "answer", widget: "markdown"}
+    files:
+      - file: "_data/faq.json"
+        label: "All FAQ"
+        name: "faq"
+        fields:
+          - label: "FAQ"
+            name: "faq"
+            widget: "list"
+            fields:
+              - {label: "Question", name: "question", widget: "string"}
+              - {label: "Answer", name: "answer", widget: "markdown"}
 
   - name: "products"
     label: "Products"
-    folder: "_data"
-    create: true
-    extension: "json"
-    format: "json"
-    identifier_field: "name"
-    fields:
-      - {label: "Name", name: "name", widget: "string"}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Price", name: "price", widget: "number", value_type: "float"}
-      - {label: "Photo", name: "photo", widget: "image"}
-      - {label: "Checkout URL", name: "checkout_url", widget: "string"}
+    files:
+      - file: "_data/products.json"
+        label: "All Products"
+        name: "products"
+        fields:
+          - label: "Products"
+            name: "products"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Price", name: "price", widget: "number", value_type: "float"}
+              - {label: "Photo", name: "photo", widget: "image", required: false}
+              - {label: "Checkout URL", name: "checkout_url", widget: "string"}
+
 
   - name: "services"
     label: "Services"
-    folder: "_data"
-    create: true
-    extension: "json"
-    format: "json"
-    identifier_field: "name"
-    fields:
-      - {label: "Name", name: "name", widget: "string"}
-      - {label: "Description", name: "description", widget: "markdown"}
-      - {label: "Photo", name: "photo", widget: "image"}
-      - label: "Features"
-        name: "features"
-        widget: "list"
-        field: {label: "Feature", name: "feature", widget: "string"}
+    files:
+      - file: "_data/services.json"
+        label: "All Services"
+        name: "services"
+        fields:
+          - label: "Services"
+            name: "services"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Description", name: "description", widget: "markdown"}
+              - {label: "Photo", name: "photo", widget: "image", required: false}
+              - label: "Features"
+                name: "features"
+                widget: "list"
+                field: {label: "Feature", name: "feature", widget: "string"}
 
   - name: "testimonials"
     label: "Testimonials"
-    folder: "_data"
-    create: true
-    extension: "json"
-    format: "json"
-    identifier_field: "name"
-    fields:
-      - {label: "Name", name: "name", widget: "string"}
-      - {label: "Role", name: "role", widget: "string"}
-      - {label: "Quote", name: "quote", widget: "text"}
-      - {label: "Photo", name: "photo", widget: "image"}
+    files:
+      - file: "_data/testimonials.json"
+        label: "All Testimonials"
+        name: "testimonials"
+        fields:
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Role", name: "role", widget: "string"}
+              - {label: "Quote", name: "quote", widget: "text"}
+              - {label: "Photo", name: "photo", widget: "image", required: false}
+
 
   - name: "portfolio_images"
     label: "Portfolio Images"
