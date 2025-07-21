@@ -1,0 +1,39 @@
+---
+layout: page
+title: Blog
+---
+
+<h1>Blog Posts</h1>
+
+<div class="posts">
+  {% for post in paginator.posts %}
+    <article>
+      <h2>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </h2>
+      <p class="post-meta">
+        {{ post.date | date: "%B %-d, %Y" }}
+      </p>
+      {% if post.description %}
+        <p>{{ post.description }}</p>
+      {% else %}
+        <p>{{ post.excerpt | strip_html | truncate: 160 }}</p>
+      {% endif %}
+    </article>
+  {% endfor %}
+</div>
+
+<!-- Pagination links -->
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a>
+  {% endif %}
+  
+  <span class="page_number">
+    Page {{ paginator.page }} of {{ paginator.total_pages }}
+  </span>
+
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+  {% endif %}
+</div>

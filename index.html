@@ -1,0 +1,132 @@
+---
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+layout: page
+hero_header: Welcome to Our Site
+hero_image: /assets/images/hero.png
+section1_header: First Section
+section1_text: This is the content for the first section. You can edit this in the CMS.
+section1_image: /assets/images/section1.png
+section2_header: Second Section
+section2_text: This is the content for the second section. You can edit this in the CMS.
+section2_image: /assets/images/section2.png
+---
+<main>
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1>{{ page.hero_header }}</h1>
+    {% if page.hero_image %}
+      <img src="{{ page.hero_image }}" alt="{{ page.hero_header }}" class="hero-image">
+    {% endif %}
+  </div>
+
+  <!-- Content Sections -->
+  <section class="section1">
+    <h2>{{ page.section1_header }}</h2>
+    <div class="section-content">
+      {{ page.section1_text | markdownify }}
+      {% if page.section1_image %}
+        <img src="{{ page.section1_image }}" alt="{{ page.section1_header }}">
+      {% endif %}
+    </div>
+  </section>
+
+  <section class="section2">
+    <h2>{{ page.section2_header }}</h2>
+    <div class="section-content">
+      {{ page.section2_text | markdownify }}
+      {% if page.section2_image %}
+        <img src="{{ page.section2_image }}" alt="{{ page.section2_header }}">
+      {% endif %}
+    </div>
+  </section>
+
+  <!-- Blog Posts Section -->
+  {% if site.posts.size > 0 %}
+    <section class="blog-posts">
+      <h2>Latest Posts</h2>
+      <ul class="post-list">
+        {% for post in site.posts %}
+          <li>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+
+  <!-- Services Section -->
+  {% if site.data.services.size > 0 %}
+    <section class="services">
+      <h2>Services</h2>
+      <div class="services-grid">
+        {% for service in site.data.services %}
+          <div class="service-item">
+            <h3>{{ service.name }}</h3>
+            <p>{{ service.description }}</p>
+            {% if service.features.size > 0 %}
+              <ul>
+                {% for feature in service.features %}
+                  <li>{{ feature }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+
+  <!-- Products Section -->
+  {% if site.data.products.size > 0 %}
+    <section class="products">
+      <h2>Products</h2>
+      <div class="products-grid">
+        {% for product in site.data.products %}
+          <div class="product-item">
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.description }}</p>
+            <p class="price">${{ product.price }}</p>
+            <a href="{{ product.checkout_url }}" class="buy-button">Buy Now</a>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+
+  <!-- Testimonials Section -->
+  {% if site.data.testimonials.size > 0 %}
+    <section class="testimonials">
+      <h2>Testimonials</h2>
+      <div class="testimonials-grid">
+        {% for testimonial in site.data.testimonials %}
+          <div class="testimonial-item">
+            <blockquote>{{ testimonial.quote }}</blockquote>
+            <div class="testimonial-author">
+              {% if testimonial.photo and testimonial.photo != "" %}
+                <img src="{{ testimonial.photo }}" alt="{{ testimonial.name }}">
+              {% endif %}
+              <cite>{{ testimonial.name }}, {{ testimonial.role }}</cite>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+
+  <!-- FAQ Section -->
+  {% if site.data.faq.size > 0 %}
+    <section class="faq">
+      <h2>FAQ</h2>
+      <div class="faq-grid">
+        {% for item in site.data.faq %}
+          <div class="faq-item">
+            <h3>{{ item.question }}</h3>
+            <div class="answer">{{ item.answer | markdownify }}</div>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+</main>

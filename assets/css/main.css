@@ -1,0 +1,38 @@
+/* Main styles */
+body {
+    font-family: system-ui, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #fafafa;
+    color: #333333;
+}
+
+/* Header styles */
+.site-header {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Content styles */
+.wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Post styles */
+.post {
+    margin-bottom: 40px;
+}
+
+.post-title {
+    color: #222222;
+    margin-bottom: 10px;
+}
+
+.post-meta {
+    color: #666666;
+    font-size: 0.9em;
+}

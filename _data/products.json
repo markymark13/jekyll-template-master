@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Premium Package",
+    "description": "Our most comprehensive solution",
+    "price": 299.99,
+    "photo": "/assets/images/products/premium-package.jpg",
+    "checkout_url": "https://checkout.stripe.com/premium-package"
+  },
+  {
+    "name": "Starter Kit",
+    "description": "Perfect for small businesses",
+    "price": 99.99,
+    "photo": "/assets/images/products/starter-kit.jpg",
+    "checkout_url": "https://checkout.stripe.com/starter-kit"
+  }
+]

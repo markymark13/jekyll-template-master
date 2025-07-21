@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Web Development",
+    "description": "Custom website development tailored to your needs",
+    "photo": "/assets/images/services/web-dev.jpg",
+    "features": [
+      "Responsive Design",
+      "SEO Optimization",
+      "Custom CMS"
+    ]
+  },
+  {
+    "name": "Digital Marketing",
+    "description": "Comprehensive digital marketing solutions",
+    "photo": "/assets/images/services/digital-marketing.jpg",
+    "features": [
+      "Social Media Management",
+      "Email Campaigns",
+      "Content Strategy"
+    ]
+  }
+]

@@ -1,0 +1,132 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/images"
+public_folder: "assets/images/"
+
+site_url: https://yoursite.com
+display_url: https://yoursite.com
+logo_url: https://yoursite.com/images/logo.png
+
+collections:
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "post"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Featured Image", name: "image", widget: "image", required: false}
+      - {label: "Categories", name: "categories", widget: "list", required: false}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "faq"
+    label: "FAQ"
+    folder: "_data"
+    create: true
+    extension: "json"
+    format: "json"
+    identifier_field: "question"
+    filter: {field: "slug", value: "faq"}
+    fields:
+      - {label: "Question", name: "question", widget: "string"}
+      - {label: "Answer", name: "answer", widget: "markdown"}
+
+  - name: "products"
+    label: "Products"
+    folder: "_data"
+    create: true
+    extension: "json"
+    format: "json"
+    identifier_field: "name"
+    filter: {field: "slug", value: "products"}
+    fields:
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Price", name: "price", widget: "number", value_type: "float"}
+      - {label: "Photo", name: "photo", widget: "image"}
+      - {label: "Checkout URL", name: "checkout_url", widget: "string"}
+
+  - name: "services"
+    label: "Services"
+    folder: "_data"
+    create: true
+    extension: "json"
+    format: "json"
+    identifier_field: "name"
+    filter: {field: "slug", value: "services"}
+    fields:
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Description", name: "description", widget: "markdown"}
+      - {label: "Photo", name: "photo", widget: "image"}
+      - label: "Features"
+        name: "features"
+        widget: "list"
+        field: {label: "Feature", name: "feature", widget: "string"}
+
+  - name: "testimonials"
+    label: "Testimonials"
+    folder: "_data"
+    create: true
+    extension: "json"
+    format: "json"
+    identifier_field: "name"
+    filter: {field: "slug", value: "testimonials"}
+    fields:
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Role", name: "role", widget: "string"}
+      - {label: "Quote", name: "quote", widget: "text"}
+      - {label: "Photo", name: "photo", widget: "image"}
+
+  - name: "portfolio_images"
+    label: "Portfolio Images"
+    folder: "assets/images/portfolio"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Image", name: "image", widget: "image"}          
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "index.html"
+        label: "Home Page"
+        name: "home"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+          - {label: "Hero Header", name: "hero_header", widget: "string"}
+          - {label: "Hero Image", name: "hero_image", widget: "image"}
+          - label: "Section 1"
+            name: "section1"
+            widget: "object"
+            fields:
+              - {label: "Header", name: "section1_header", widget: "string"}
+              - {label: "Text", name: "section1_text", widget: "markdown"}
+              - {label: "Image", name: "section1_image", widget: "image"}
+          - label: "Section 2"
+            name: "section2"
+            widget: "object"
+            fields:
+              - {label: "Header", name: "section2_header", widget: "string"}
+              - {label: "Text", name: "section2_text", widget: "markdown"}
+              - {label: "Image", name: "section2_image", widget: "image"}
+              
+      - file: "about.html"
+        label: "About Page"
+        name: "about"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+          - {label: "Hero Header", name: "hero_header", widget: "string"}
+          - {label: "Hero Image", name: "hero_image", widget: "image"}
+          - label: "Section 1"
+            name: "section1"
+            widget: "object"
+            fields:
+              - {label: "Header", name: "section1_header", widget: "string"}
+              - {label: "Text", name: "section1_text", widget: "markdown"}
+              - {label: "Image", name: "section1_image", widget: "image"}
